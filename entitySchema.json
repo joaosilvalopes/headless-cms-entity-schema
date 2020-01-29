@@ -1,0 +1,179 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"properties": {
+		"fields": {
+			"visualisationProp": {
+				"type": "string"
+			},
+			"type": "array",
+			"items": {
+				"defaultSnippets": [
+					{
+						"label": "New Field",
+						"description": "Creates a New Field template",
+						"body": {
+							"type": "$1",
+							"variant": "$2",
+							"name": "$3"
+						}
+					}
+				],
+				"oneOf": [
+					{
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"type": {
+								"type": "string",
+								"enum": ["string"]
+							},
+							"variant": {
+								"type": "string",
+								"enum": ["input", "textArea", "colorPicker"]
+							}
+						},
+						"required": ["type", "variant", "name"]
+					},
+					{
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"type": {
+								"type": "string",
+								"enum": ["boolean"]
+							},
+							"variant": {
+								"type": "string",
+								"enum": ["checkbox"]
+							}
+						},
+						"required": ["type", "variant", "name"]
+					},
+					{
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"type": {
+								"type": "string",
+								"enum": ["file"]
+							},
+							"variant": {
+								"type": "string",
+								"enum": ["upload"]
+							}
+						},
+						"required": ["type", "variant", "name"]
+					},
+					{
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"type": {
+								"type": "string",
+								"enum": ["referenceOne"]
+							},
+							"variant": {
+								"type": "string",
+								"enum": ["select"]
+							},
+							"ref": {
+								"type": "string"
+							},
+							"visualisationProp": {
+								"type": "string"
+							}
+						},
+						"required": ["type", "variant", "name", "ref", "visualisationProp"]
+					},
+					{
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"type": {
+								"type": "string",
+								"enum": ["embedOne"]
+							},
+							"variant": {
+								"type": "string",
+								"enum": ["fieldGroup"]
+							},
+							"ref": {
+								"type": "string"
+							},
+							"visualisationProp": {
+								"type": "string"
+							}
+						},
+						"required": ["type", "variant", "name", "ref", "visualisationProp"]
+					},
+					{
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"type": {
+								"type": "string",
+								"enum": ["embedMany"]
+							},
+							"variant": {
+								"type": "string",
+								"enum": ["book"]
+							},
+							"ref": {
+								"type": "string"
+							},
+							"visualisationProp": {
+								"type": "string"
+							}
+						},
+						"required": ["type", "variant", "name", "ref", "visualisationProp"]
+					},
+					{
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"type": {
+								"type": "string",
+								"enum": ["number"]
+							},
+							"variant": {
+								"type": "string",
+								"enum": ["datePicker"]
+							}
+						},
+						"required": ["type", "variant", "name"]
+					},
+					{
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"type": {
+								"type": "string",
+								"enum": ["referenceMany"]
+							},
+							"variant": {
+								"type": "string",
+								"enum": ["selectBook"]
+							},
+							"ref": {
+								"type": "string"
+							},
+							"visualisationProp": {
+								"type": "string"
+							}
+						},
+						"required": ["type", "variant", "name", "ref", "visualisationProp"]
+					}
+				]
+			}
+		}
+	},
+	"required": ["visualisationProp", "fields"]
+}
